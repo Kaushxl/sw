@@ -1,12 +1,1165 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Selfdrive Wheels</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/App.jsx"></script>
-  </body>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selfdrive Wheels | Self Drive Car Rental in Kharar, Mohali & Chandigarh</title>
+    <meta name="description" content="Rent self-drive cars in Kharar, Landran, Mohali and Chandigarh with Selfdrive Wheels. Affordable cars, flexible rentals, no security deposit and easy booking.">
+    <meta name="keywords" content="Self drive car rental Kharar, Self drive cars Kharar, Car rental Kharar, Self drive car rental Mohali, Self drive cars Chandigarh, Car rental near Kharar, Self drive cars near Chandigarh, Affordable self drive cars Kharar, Car rental Landran, Self drive SUV Kharar">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Selfdrive Wheels | Your Ride. Your Rules.">
+    <meta property="og:description" content="Premium self-drive car rentals in Kharar, Mohali & Chandigarh. No Security Deposit. Free 5km Pickup & Drop.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Tailwind CSS & Lucide Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#E53E3E',
+                            orange: '#FF5722',
+                            dark: '#0B0F17',
+                            card: '#161C28',
+                            border: '#2A3447',
+                            accent: '#FF3B30'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0F17;
+            color: #F3F4F6;
+        }
+        .glass-card {
+            background: rgba(22, 28, 40, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #FFFFFF 0%, #A0AEC0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-accent-gradient {
+            background: linear-gradient(135deg, #FF5722 0%, #FF3B30 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0F17; }
+        ::-webkit-scrollbar-thumb { background: #2A3447; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #FF5722; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-orange selection:text-white pb-16 md:pb-0">
+
+    <!-- HEADER / NAVBAR -->
+    <header class="sticky top-0 z-50 glass-card border-b border-brand-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-orange to-brand-accent flex items-center justify-center font-black text-xl text-white shadow-lg shadow-brand-orange/20 transition-transform group-hover:scale-105">
+                        SW
+                    </div>
+                    <div>
+                        <span class="text-xl font-black tracking-wider text-white block leading-none">SELFDRIVE<span class="text-brand-orange">WHEELS</span></span>
+                        <span class="text-[10px] font-bold text-gray-400 tracking-widest uppercase block mt-1">Your Ride. Your Rules.</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-gray-300">
+                    <a href="#home" class="hover:text-brand-orange transition-colors">Home</a>
+                    <a href="#fleet" class="hover:text-brand-orange transition-colors">Fleet</a>
+                    <a href="#offers" class="hover:text-brand-orange transition-colors">Offers</a>
+                    <a href="#how-it-works" class="hover:text-brand-orange transition-colors">How It Works</a>
+                    <a href="#requirements" class="hover:text-brand-orange transition-colors">Requirements</a>
+                    <a href="#about" class="hover:text-brand-orange transition-colors">About</a>
+                    <a href="#faq" class="hover:text-brand-orange transition-colors">FAQ</a>
+                    <a href="#contact" class="hover:text-brand-orange transition-colors">Contact</a>
+                </nav>
+
+                <!-- Desktop CTA -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="#quick-booking" class="bg-gradient-to-r from-brand-orange to-brand-accent hover:opacity-90 text-white font-bold px-6 py-2.5 rounded-xl text-sm transition-all shadow-lg shadow-brand-orange/25">
+                        BOOK NOW
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-white p-2" aria-label="Toggle Navigation Menu">
+                    <i data-lucide="menu" class="w-7 h-7"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden glass-card border-b border-brand-border/50 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-border/30">Home</a>
+            <a href="#fleet" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-border/30">Fleet</a>
+            <a href="#offers" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-border/30">Offers</a>
+            <a href="#how-it-works" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-border/30">How It Works</a>
+            <a href="#requirements" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-border/30">Requirements</a>
+            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-border/30">About</a>
+            <a href="#faq" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-border/30">FAQ</a>
+            <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-border/30">Contact</a>
+            <a href="#quick-booking" class="mobile-nav-link block text-center bg-gradient-to-r from-brand-orange to-brand-accent text-white font-bold py-3 rounded-xl mt-4">BOOK YOUR RIDE</a>
+        </div>
+    </header>
+
+    <!-- SECTION 1: HERO (MAHINDRA SCORPIO CLASSIC S11 BLACK AS HERO) -->
+    <section id="home" class="relative overflow-hidden pt-8 pb-16 md:py-24">
+        <!-- Background Lighting Glow -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-orange/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Text -->
+                <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card text-brand-orange text-xs font-semibold tracking-wide border border-brand-orange/30">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Kharar • Landran • Mohali • Chandigarh
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none">
+                        YOUR RIDE.<br>
+                        <span class="text-accent-gradient">YOUR RULES.</span>
+                    </h1>
+
+                    <p class="text-gray-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Reliable self-drive cars for your everyday journeys, weekend getaways and unforgettable road trips. Drive More. Explore More.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#quick-booking" class="w-full sm:w-auto text-center bg-gradient-to-r from-brand-orange to-brand-accent hover:opacity-90 text-white font-bold px-8 py-4 rounded-xl text-base transition-all shadow-lg shadow-brand-orange/25">
+                            BOOK YOUR CAR
+                        </a>
+                        <a href="#fleet" class="w-full sm:w-auto text-center glass-card hover:bg-brand-border/40 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all border border-brand-border">
+                            VIEW FLEET
+                        </a>
+                        <button onclick="directWhatsAppGeneral()" class="w-full sm:w-auto text-center bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-6 py-4 rounded-xl text-base transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="message-square" class="w-5 h-5"></i> WHATSAPP US
+                        </button>
+                    </div>
+
+                    <div class="pt-4 flex items-center justify-center lg:justify-start gap-6 text-xs text-gray-400">
+                        <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> No Security Deposit</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Free 5km Pickup & Drop</span>
+                    </div>
+                </div>
+
+                <!-- Right Hero Vehicle Showcase (Mahindra Scorpio Classic S11 Black) -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-2xl overflow-hidden glass-card p-3 border border-brand-border/80 shadow-2xl">
+                        <div class="absolute top-6 left-6 z-10 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-xs font-bold text-white flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span> HERO VEHICLE
+                        </div>
+                        
+                        <!-- Exact Image: Mahindra Scorpio Classic S11 Black -->
+                        <img 
+                            src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1000&q=80" 
+                            alt="Mahindra Scorpio Classic S11 Black" 
+                            class="w-full h-[320px] sm:h-[420px] object-cover rounded-xl transition-transform duration-500 hover:scale-[1.02]"
+                        >
+
+                        <div class="p-4 bg-brand-card/90 rounded-b-xl border-t border-brand-border flex items-center justify-between">
+                            <div>
+                                <h3 class="font-extrabold text-lg text-white">MAHINDRA SCORPIO CLASSIC S11</h3>
+                                <p class="text-xs text-gray-400">Black Exterior • Powerful SUV • Manual</p>
+                            </div>
+                            <button onclick="selectAndScrollBooking('MAHINDRA SCORPIO CLASSIC S11 BLACK')" class="bg-brand-orange/20 text-brand-orange hover:bg-brand-orange hover:text-white font-bold text-xs px-4 py-2 rounded-lg transition-colors border border-brand-orange/30">
+                                BOOK THIS CAR
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TRUST & VALUE STRIP -->
+        <div class="mt-12 border-y border-brand-border/60 bg-brand-card/40 py-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                    <div class="p-2">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-brand-orange mx-auto mb-1"></i>
+                        <p class="text-xs sm:text-sm font-bold text-gray-200">No Security Deposit</p>
+                    </div>
+                    <div class="p-2">
+                        <i data-lucide="car" class="w-6 h-6 text-brand-orange mx-auto mb-1"></i>
+                        <p class="text-xs sm:text-sm font-bold text-gray-200">12+ Fleet Options</p>
+                    </div>
+                    <div class="p-2">
+                        <i data-lucide="truck" class="w-6 h-6 text-brand-orange mx-auto mb-1"></i>
+                        <p class="text-xs sm:text-sm font-bold text-gray-200">Free Pickup & Drop</p>
+                        <p class="text-[10px] text-gray-400">(Within 5 km radius)</p>
+                    </div>
+                    <div class="p-2">
+                        <i data-lucide="clock" class="w-6 h-6 text-brand-orange mx-auto mb-1"></i>
+                        <p class="text-xs sm:text-sm font-bold text-gray-200">Flexible Rentals</p>
+                    </div>
+                    <div class="p-2 col-span-2 md:col-span-1">
+                        <i data-lucide="zap" class="w-6 h-6 text-brand-orange mx-auto mb-1"></i>
+                        <p class="text-xs sm:text-sm font-bold text-gray-200">Instant WhatsApp Booking</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: QUICK BOOKING INTERFACE -->
+    <section id="quick-booking" class="py-12 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-2xl p-6 sm:p-8 border border-brand-orange/30 shadow-2xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-2.5 bg-brand-orange/20 rounded-xl text-brand-orange">
+                        <i data-lucide="calendar-check" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-black text-white">CHECK VEHICLE AVAILABILITY</h2>
+                        <p class="text-xs text-gray-400">Select your ride and dates to generate an instant WhatsApp reservation request.</p>
+                    </div>
+                </div>
+
+                <form id="booking-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <!-- Vehicle Selection -->
+                    <div class="sm:col-span-2 lg:col-span-3">
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Select Vehicle <span class="text-brand-orange">*</span></label>
+                        <select id="form-vehicle" required class="w-full bg-brand-dark/90 border border-brand-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-orange transition-colors">
+                            <!-- Populated dynamically via JS -->
+                        </select>
+                    </div>
+
+                    <!-- Pickup Date & Time -->
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Pickup Date <span class="text-brand-orange">*</span></label>
+                        <input type="date" id="form-pickup-date" required class="w-full bg-brand-dark/90 border border-brand-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-orange">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Pickup Time <span class="text-brand-orange">*</span></label>
+                        <input type="time" id="form-pickup-time" required class="w-full bg-brand-dark/90 border border-brand-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-orange">
+                    </div>
+
+                    <!-- Return Date & Time -->
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Return Date <span class="text-brand-orange">*</span></label>
+                        <input type="date" id="form-return-date" required class="w-full bg-brand-dark/90 border border-brand-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-orange">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Return Time <span class="text-brand-orange">*</span></label>
+                        <input type="time" id="form-return-time" required class="w-full bg-brand-dark/90 border border-brand-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-orange">
+                    </div>
+
+                    <!-- Customer Info -->
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Your Name <span class="text-brand-orange">*</span></label>
+                        <input type="text" id="form-name" placeholder="John Doe" required class="w-full bg-brand-dark/90 border border-brand-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-orange">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Phone Number <span class="text-brand-orange">*</span></label>
+                        <input type="tel" id="form-phone" placeholder="98XXXXXXXX" required class="w-full bg-brand-dark/90 border border-brand-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-orange">
+                    </div>
+
+                    <!-- Form Submit CTA -->
+                    <div class="sm:col-span-2 lg:col-span-3 pt-2">
+                        <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-emerald-500 hover:opacity-90 text-white font-bold py-4 rounded-xl text-base transition-all shadow-lg flex items-center justify-center gap-2">
+                            <i data-lucide="message-square" class="w-5 h-5"></i> CHECK AVAILABILITY VIA WHATSAPP
+                        </button>
+                        <p class="text-[11px] text-gray-400 text-center mt-2">
+                            Note: This action generates an official availability enquiry message sent directly to our dispatch WhatsApp team.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: EXACT FLEET SHOWCASE -->
+    <section id="fleet" class="py-16 bg-brand-dark/60 border-t border-brand-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-orange mb-2">OUR FLEET</h2>
+                <p class="text-3xl sm:text-4xl font-black text-white">CHOOSE YOUR PERFECT VEHICLE</p>
+                <p class="text-gray-400 text-sm mt-2">100% real vehicles available for self-drive in Kharar, Mohali, Landran & Chandigarh.</p>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10" id="fleet-filters">
+                <button onclick="filterFleet('ALL')" class="filter-btn active bg-brand-orange text-white px-5 py-2 rounded-xl text-xs font-bold transition-colors">ALL CARS (12)</button>
+                <button onclick="filterFleet('HATCHBACK')" class="filter-btn glass-card text-gray-300 hover:text-white px-5 py-2 rounded-xl text-xs font-bold transition-colors">HATCHBACKS</button>
+                <button onclick="filterFleet('SUV')" class="filter-btn glass-card text-gray-300 hover:text-white px-5 py-2 rounded-xl text-xs font-bold transition-colors">SUVS</button>
+                <button onclick="filterFleet('AUTOMATIC')" class="filter-btn glass-card text-gray-300 hover:text-white px-5 py-2 rounded-xl text-xs font-bold transition-colors">AUTOMATICS</button>
+            </div>
+
+            <!-- Fleet Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="fleet-grid">
+                <!-- Vehicle Cards Dynamically Rendered via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- VEHICLE DETAILS MODAL -->
+    <div id="vehicle-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="glass-card max-w-2xl w-full rounded-2xl overflow-hidden border border-brand-border max-h-[90vh] overflow-y-auto">
+            <div class="relative">
+                <img id="modal-img" src="" alt="" class="w-full h-64 object-cover">
+                <button onclick="closeModal()" class="absolute top-4 right-4 bg-black/60 text-white p-2 rounded-full hover:bg-black">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-4">
+                <div>
+                    <h3 id="modal-title" class="text-2xl font-extrabold text-white"></h3>
+                    <p id="modal-specs" class="text-xs text-brand-orange font-semibold uppercase mt-1"></p>
+                </div>
+                <div class="bg-brand-card/80 p-4 rounded-xl border border-brand-border/60">
+                    <p class="text-xs text-gray-400 uppercase font-semibold">Pricing</p>
+                    <p id="modal-price" class="text-xl font-black text-white mt-0.5"></p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-gray-300 uppercase mb-2">Overview</h4>
+                    <p id="modal-desc" class="text-sm text-gray-300 leading-relaxed"></p>
+                </div>
+                <div class="pt-4 flex gap-3">
+                    <button id="modal-book-btn" class="flex-1 bg-gradient-to-r from-brand-orange to-brand-accent text-white font-bold py-3 rounded-xl text-sm">
+                        BOOK THIS CAR
+                    </button>
+                    <button onclick="closeModal()" class="px-5 glass-card text-gray-300 hover:text-white font-semibold rounded-xl text-sm">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 4: OFFERS & DEALS -->
+    <section id="offers" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-orange mb-2">PROMOTIONS</h2>
+                <p class="text-3xl sm:text-4xl font-black text-white">EXCLUSIVE RENTAL OFFERS</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Primary Featured Offer -->
+                <div class="glass-card rounded-2xl p-8 border-2 border-brand-orange/40 relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute -right-8 -top-8 w-32 h-32 bg-brand-orange/20 rounded-full blur-2xl"></div>
+                    <div>
+                        <span class="bg-brand-orange text-white text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">FEATURED DEAL</span>
+                        <h3 class="text-2xl font-extrabold text-white mt-4">🎉 3-DAY BOOKING OFFER</h3>
+                        <p class="text-brand-orange font-bold text-lg mt-1">Book for 3 days and get half a day FREE!</p>
+                        <p class="text-gray-300 text-sm mt-3 leading-relaxed">
+                            Perfect for vacations, road trips to Himachal, and extended weekend getaways. Save big when you plan longer trips with Selfdrive Wheels.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-brand-border/60">
+                        <button onclick="selectAndScrollBooking('', '3-Day Special Offer')" class="w-full bg-gradient-to-r from-brand-orange to-brand-accent text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-md">
+                            CLAIM THIS OFFER
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Multiple-Day & Seasonal Deals -->
+                <div class="glass-card rounded-2xl p-8 border border-brand-border/80 flex flex-col justify-between">
+                    <div>
+                        <span class="bg-brand-border text-gray-200 text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">SPECIAL & SEASONAL</span>
+                        <h3 class="text-2xl font-extrabold text-white mt-4">STUDENT & WEEKDAY PACKAGES</h3>
+                        <p class="text-gray-300 text-sm mt-3 leading-relaxed">
+                            Special rates for college students (CU, CGC, Chitkara) and weekday commuting across Kharar, Landran, Mohali & Chandigarh.
+                        </p>
+                        <ul class="text-xs text-gray-300 space-y-2 mt-4">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-orange"></i> College Student Friendly verification</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-orange"></i> Zero Security Deposit required</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-orange"></i> Multi-day roadtrip discounts</li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-brand-border/60">
+                        <button onclick="directWhatsAppGeneral('Inquiry regarding Student/Weekday Offers')" class="w-full glass-card hover:bg-brand-border/40 text-white font-bold py-3.5 rounded-xl text-sm transition-all border border-brand-border">
+                            ENQUIRE NOW
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: HOW IT WORKS -->
+    <section id="how-it-works" class="py-16 bg-brand-dark/80 border-y border-brand-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-orange mb-2">SIMPLE PROCESS</h2>
+                <p class="text-3xl sm:text-4xl font-black text-white">HOW IT WORKS</p>
+                <p class="text-gray-400 text-sm mt-2">Get on the road in 5 simple, frictionless steps.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Step 1 -->
+                <div class="glass-card p-6 rounded-2xl border border-brand-border/60 relative">
+                    <span class="text-3xl font-black text-brand-orange/40 block mb-2">01</span>
+                    <h3 class="font-extrabold text-base text-white mb-2">Choose Your Car</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Browse our verified fleet of hatchbacks and SUVs.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="glass-card p-6 rounded-2xl border border-brand-border/60 relative">
+                    <span class="text-3xl font-black text-brand-orange/40 block mb-2">02</span>
+                    <h3 class="font-extrabold text-base text-white mb-2">Select Your Dates</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Pick convenient pickup and return dates/times.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="glass-card p-6 rounded-2xl border border-brand-border/60 relative">
+                    <span class="text-3xl font-black text-brand-orange/40 block mb-2">03</span>
+                    <h3 class="font-extrabold text-base text-white mb-2">Send Request</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Submit your enquiry directly via our WhatsApp system.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="glass-card p-6 rounded-2xl border border-brand-border/60 relative">
+                    <span class="text-3xl font-black text-brand-orange/40 block mb-2">04</span>
+                    <h3 class="font-extrabold text-base text-white mb-2">Verify Documents</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Share your Driving Licence and Aadhaar Card.</p>
+                </div>
+                <!-- Step 5 -->
+                <div class="glass-card p-6 rounded-2xl border border-brand-border/60 relative">
+                    <span class="text-3xl font-black text-brand-orange/40 block mb-2">05</span>
+                    <h3 class="font-extrabold text-base text-white mb-2">Pick Up & Drive</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Collect your car or get free delivery within 5 km.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: RENTAL REQUIREMENTS & POLICIES -->
+    <section id="requirements" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Requirements Column -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div>
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-orange mb-2">DOCUMENTATION</h2>
+                        <h3 class="text-3xl font-black text-white">WHAT YOU NEED TO RENT</h3>
+                    </div>
+
+                    <!-- Highlighted Zero Deposit Card -->
+                    <div class="bg-gradient-to-r from-emerald-950/60 to-emerald-900/30 border border-emerald-500/30 p-5 rounded-2xl flex items-center gap-4">
+                        <div class="p-3 bg-emerald-500/20 text-emerald-400 rounded-xl">
+                            <i data-lucide="shield-check" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-lg text-emerald-300">🔐 NO SECURITY DEPOSIT</h4>
+                            <p class="text-xs text-emerald-200/80 mt-0.5">Enjoy a simpler booking experience without paying an upfront security deposit.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="glass-card p-4 rounded-xl border border-brand-border/60 flex items-start gap-4">
+                            <i data-lucide="id-card" class="w-6 h-6 text-brand-orange shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Driving Licence</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Original, valid driving licence is required at the time of pickup.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-brand-border/60 flex items-start gap-4">
+                            <i data-lucide="file-check" class="w-6 h-6 text-brand-orange shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Aadhaar Card</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Valid Aadhaar identification for identity verification.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-brand-border/60 flex items-start gap-4">
+                            <i data-lucide="graduation-cap" class="w-6 h-6 text-brand-orange shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">College / Work ID</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Provide a valid college student ID or corporate work ID.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-[11px] text-gray-400 bg-brand-card/40 p-3 rounded-lg border border-brand-border/40">
+                        * Note: Any accident-related losses or damages are the responsibility of the customer according to the applicable rental terms.
+                    </p>
+                </div>
+
+                <!-- Policies Column -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div>
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-orange mb-2">TRANSPARENT RULES</h2>
+                        <h3 class="text-3xl font-black text-white">RENTAL POLICIES</h3>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl border border-brand-border/80 space-y-4">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="gauge" class="w-5 h-5 text-brand-orange shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Speed Limit (110 km/h)</h4>
+                                <p class="text-xs text-gray-300 mt-0.5">Maximum permitted speed is 110 km/h. Any applicable fine or penalty for exceeding the permitted speed will be charged before return.</p>
+                            </div>
+                        </div>
+
+                        <hr class="border-brand-border/50">
+
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="map" class="w-5 h-5 text-brand-orange shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Extra Kilometres Rate</h4>
+                                <p class="text-xs text-gray-300 mt-0.5">Additional kilometres beyond the allotted rental limit are charged at ₹10/km.</p>
+                            </div>
+                        </div>
+
+                        <hr class="border-brand-border/50">
+
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="clock-4" class="w-5 h-5 text-brand-orange shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Booking Extension Policy</h4>
+                                <p class="text-xs text-gray-300 mt-0.5">Extensions must be requested at least 6 hours before scheduled return time, subject to vehicle availability.</p>
+                            </div>
+                        </div>
+
+                        <hr class="border-brand-border/50">
+
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 text-brand-orange shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Weekend & Cancellation Rules</h4>
+                                <p class="text-xs text-gray-300 mt-0.5">Hourly bookings are not available on weekends. Booking advance amounts are non-refundable for Friday, Saturday, or Sunday bookings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: ABOUT US & SERVICE AREA -->
+    <section id="about" class="py-16 bg-brand-dark/80 border-t border-brand-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-brand-orange">ABOUT SELFDRIVE WHEELS</h2>
+                    <h3 class="text-3xl sm:text-4xl font-black text-white leading-tight">
+                        MORE THAN JUST A RENTAL.<br>
+                        <span class="text-brand-orange">IT'S YOUR JOURNEY.</span>
+                    </h3>
+                    
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Selfdrive Wheels was created to make self-drive travel simple, flexible and accessible. Whether you are heading out for a weekend getaway, travelling with friends, visiting family, commuting around the city or planning a long road trip, our goal is to provide the freedom to choose a vehicle and travel on your own terms.
+                    </p>
+
+                    <div class="p-4 glass-card rounded-xl border border-brand-border/60">
+                        <h4 class="font-bold text-white text-sm mb-2 flex items-center gap-2">
+                            <i data-lucide="navigation" class="w-4 h-4 text-brand-orange"></i> Primary Operating Hub
+                        </h4>
+                        <p class="text-xs text-gray-300">
+                            <strong>Mustang City, Nirwana Street, Kharar, Punjab, India</strong>
+                        </p>
+                        <p class="text-xs text-gray-400 mt-1">
+                            Service Areas: Kharar • Landran • Mohali • Chandigarh
+                        </p>
+                    </div>
+
+                    <div class="bg-brand-orange/10 border border-brand-orange/30 p-4 rounded-xl flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-brand-orange uppercase block">FREE DELIVERY BENEFIT</span>
+                            <span class="text-sm font-bold text-white">Free pickup & drop available within a 5 km radius</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Location Card / Map Button -->
+                <div class="lg:col-span-6">
+                    <div class="glass-card p-6 rounded-2xl border border-brand-border text-center space-y-6">
+                        <div class="w-16 h-16 bg-brand-orange/20 text-brand-orange rounded-full flex items-center justify-center mx-auto">
+                            <i data-lucide="map-pin" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-white">VISIT OUR HUB</h4>
+                            <p class="text-xs text-gray-400 mt-1">Mustang City, Nirwana Street, Kharar</p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                            <a href="https://maps.google.com/?q=Mustang+City+Nirwana+Street+Kharar+Punjab" target="_blank" class="bg-gradient-to-r from-brand-orange to-brand-accent text-white font-bold px-6 py-3 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg">
+                                <i data-lucide="compass" class="w-4 h-4"></i> GET DIRECTIONS
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: FAQ -->
+    <section id="faq" class="py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-orange mb-2">HELP CENTER</h2>
+                <p class="text-3xl font-black text-white">FREQUENTLY ASKED QUESTIONS</p>
+            </div>
+
+            <div class="space-y-4" id="faq-accordion">
+                <!-- FAQ Items Dynamic Toggle -->
+                <div class="glass-card rounded-xl border border-brand-border/60 overflow-hidden">
+                    <button class="w-full p-5 text-left font-bold text-white text-sm flex items-center justify-between focus:outline-none" onclick="toggleFaq(this)">
+                        <span>What documents are required to rent a car?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-orange transition-transform"></i>
+                    </button>
+                    <div class="hidden px-5 pb-5 text-xs text-gray-300 leading-relaxed border-t border-brand-border/40 pt-3">
+                        A valid Driving Licence, Aadhaar Card, and a valid College ID or Work ID are required.
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl border border-brand-border/60 overflow-hidden">
+                    <button class="w-full p-5 text-left font-bold text-white text-sm flex items-center justify-between focus:outline-none" onclick="toggleFaq(this)">
+                        <span>Is a security deposit required?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-orange transition-transform"></i>
+                    </button>
+                    <div class="hidden px-5 pb-5 text-xs text-gray-300 leading-relaxed border-t border-brand-border/40 pt-3">
+                        No security deposit is required to rent a car from Selfdrive Wheels.
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl border border-brand-border/60 overflow-hidden">
+                    <button class="w-full p-5 text-left font-bold text-white text-sm flex items-center justify-between focus:outline-none" onclick="toggleFaq(this)">
+                        <span>What areas do you serve?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-orange transition-transform"></i>
+                    </button>
+                    <div class="hidden px-5 pb-5 text-xs text-gray-300 leading-relaxed border-t border-brand-border/40 pt-3">
+                        We primarily serve Kharar, Landran, Mohali, and Chandigarh.
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl border border-brand-border/60 overflow-hidden">
+                    <button class="w-full p-5 text-left font-bold text-white text-sm flex items-center justify-between focus:outline-none" onclick="toggleFaq(this)">
+                        <span>Do you provide pickup and drop?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-orange transition-transform"></i>
+                    </button>
+                    <div class="hidden px-5 pb-5 text-xs text-gray-300 leading-relaxed border-t border-brand-border/40 pt-3">
+                        Yes! Free pickup and drop is available within a 5 km radius of our location.
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl border border-brand-border/60 overflow-hidden">
+                    <button class="w-full p-5 text-left font-bold text-white text-sm flex items-center justify-between focus:outline-none" onclick="toggleFaq(this)">
+                        <span>Are hourly bookings available?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-orange transition-transform"></i>
+                    </button>
+                    <div class="hidden px-5 pb-5 text-xs text-gray-300 leading-relaxed border-t border-brand-border/40 pt-3">
+                        Hourly bookings may be available on applicable weekdays. Hourly bookings are NOT available on weekends.
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl border border-brand-border/60 overflow-hidden">
+                    <button class="w-full p-5 text-left font-bold text-white text-sm flex items-center justify-between focus:outline-none" onclick="toggleFaq(this)">
+                        <span>What happens if I exceed the allotted kilometres?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-orange transition-transform"></i>
+                    </button>
+                    <div class="hidden px-5 pb-5 text-xs text-gray-300 leading-relaxed border-t border-brand-border/40 pt-3">
+                        Additional kilometres beyond the allotted rental limit are charged at ₹10/km.
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl border border-brand-border/60 overflow-hidden">
+                    <button class="w-full p-5 text-left font-bold text-white text-sm flex items-center justify-between focus:outline-none" onclick="toggleFaq(this)">
+                        <span>What is the maximum permitted speed?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-orange transition-transform"></i>
+                    </button>
+                    <div class="hidden px-5 pb-5 text-xs text-gray-300 leading-relaxed border-t border-brand-border/40 pt-3">
+                        The maximum permitted speed is 110 km/h.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: INSTAGRAM & SOCIAL JOURNEY -->
+    <section class="py-12 bg-brand-dark/90 border-t border-brand-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-brand-orange mb-2">FOLLOW THE JOURNEY</h2>
+            <p class="text-2xl font-black text-white mb-6">@SelfdriveWheels</p>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                <div class="glass-card h-40 rounded-xl overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=400&q=80" alt="Scorpio Classic" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                </div>
+                <div class="glass-card h-40 rounded-xl overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=400&q=80" alt="Car Travel" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                </div>
+                <div class="glass-card h-40 rounded-xl overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80" alt="Road trip" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                </div>
+                <div class="glass-card h-40 rounded-xl overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=400&q=80" alt="Driving Freedom" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                </div>
+            </div>
+
+            <a href="https://instagram.com" target="_blank" class="inline-flex items-center gap-2 glass-card hover:bg-brand-border/40 text-white font-bold px-6 py-3 rounded-xl text-xs border border-brand-border">
+                <i data-lucide="instagram" class="w-4 h-4 text-pink-500"></i> FOLLOW US ON INSTAGRAM
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 10: FUTURE EXPANSION -->
+    <section class="py-12 border-t border-brand-border/40 bg-brand-card/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-brand-orange mb-1">COMING SOON</h2>
+            <h3 class="text-xl font-black text-white mb-6">MORE WHEELS. MORE FREEDOM.</h3>
+            
+            <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-gray-300">
+                <span class="glass-card px-4 py-2 rounded-xl flex items-center gap-2"><i data-lucide="bike" class="w-4 h-4 text-brand-orange"></i> 🏍️ Bikes (Coming Soon)</span>
+                <span class="glass-card px-4 py-2 rounded-xl flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-brand-orange"></i> 🛵 Scooties (Coming Soon)</span>
+                <span class="glass-card px-4 py-2 rounded-xl flex items-center gap-2"><i data-lucide="car" class="w-4 h-4 text-brand-orange"></i> 🚗 More Fleet Additions</span>
+                <span class="glass-card px-4 py-2 rounded-xl flex items-center gap-2"><i data-lucide="gift" class="w-4 h-4 text-brand-orange"></i> 🎁 Referral Rewards</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 11: FINAL HOMEPAGE CTA & CONTACT -->
+    <section id="contact" class="py-16 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 text-center border-2 border-brand-orange/40 relative">
+                <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+                    YOUR NEXT JOURNEY STARTS HERE.
+                </h2>
+                <p class="text-gray-300 text-sm sm:text-base mt-3 max-w-xl mx-auto">
+                    Pick your car. Pick your dates. Hit the road. Direct bookings & enquiries available 24/7.
+                </p>
+
+                <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#quick-booking" class="w-full sm:w-auto bg-gradient-to-r from-brand-orange to-brand-accent text-white font-bold px-8 py-4 rounded-xl text-base shadow-lg shadow-brand-orange/30">
+                        BOOK YOUR RIDE NOW
+                    </a>
+                    <button onclick="directWhatsAppGeneral()" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 py-4 rounded-xl text-base flex items-center justify-center gap-2">
+                        <i data-lucide="message-square" class="w-5 h-5"></i> WHATSAPP US
+                    </button>
+                </div>
+
+                <!-- Contact Numbers Display -->
+                <div class="mt-8 pt-8 border-t border-brand-border/60 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto">
+                    <a href="tel:7560059661" class="glass-card p-3 rounded-xl flex items-center justify-center gap-2 text-white font-bold text-sm hover:bg-brand-border/40">
+                        <i data-lucide="phone-call" class="w-4 h-4 text-brand-orange"></i> 7560059661
+                    </a>
+                    <a href="tel:9805434561" class="glass-card p-3 rounded-xl flex items-center justify-center gap-2 text-white font-bold text-sm hover:bg-brand-border/40">
+                        <i data-lucide="phone-call" class="w-4 h-4 text-brand-orange"></i> 9805434561
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark border-t border-brand-border/60 pt-12 pb-20 md:pb-12 text-xs text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <span class="text-lg font-black tracking-wider text-white block">SELFDRIVE<span class="text-brand-orange">WHEELS</span></span>
+                    <p class="text-gray-400 text-xs mt-2 leading-relaxed">
+                        Your Ride. Your Rules.<br>
+                        Mustang City, Nirwana Street, Kharar, Punjab, India.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white uppercase mb-3">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-white">Home</a></li>
+                        <li><a href="#fleet" class="hover:text-white">Fleet</a></li>
+                        <li><a href="#offers" class="hover:text-white">Offers</a></li>
+                        <li><a href="#how-it-works" class="hover:text-white">How It Works</a></li>
+                        <li><a href="#requirements" class="hover:text-white">Requirements & Policies</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white uppercase mb-3">Service Areas</h4>
+                    <ul class="space-y-2">
+                        <li>Kharar</li>
+                        <li>Landran</li>
+                        <li>Mohali</li>
+                        <li>Chandigarh</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white uppercase mb-3">Direct Contact</h4>
+                    <p class="text-white font-bold mb-1">7560059661</p>
+                    <p class="text-white font-bold mb-3">9805434561</p>
+                    <p class="text-[11px] text-emerald-400">Free 5km Pickup & Drop Available</p>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-brand-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+                <p>© 2026 Selfdrive Wheels. All Rights Reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#requirements" class="hover:text-white">Privacy Policy</a>
+                    <a href="#requirements" class="hover:text-white">Terms & Conditions</a>
+                    <a href="#requirements" class="hover:text-white">Rental Policies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY MOBILE ACTION BAR -->
+    <div class="fixed bottom-0 left-0 right-0 z-40 bg-brand-card/95 backdrop-blur-md border-t border-brand-border p-3 lg:hidden flex items-center justify-between gap-2">
+        <a href="tel:7560059661" class="flex-1 bg-brand-border/60 hover:bg-brand-border text-white text-center py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5">
+            <i data-lucide="phone" class="w-4 h-4"></i> CALL
+        </a>
+        <button onclick="directWhatsAppGeneral()" class="flex-1 bg-emerald-600 text-white text-center py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5">
+            <i data-lucide="message-square" class="w-4 h-4"></i> WHATSAPP
+        </button>
+        <a href="#quick-booking" class="flex-1 bg-gradient-to-r from-brand-orange to-brand-accent text-white text-center py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5">
+            <i data-lucide="car" class="w-4 h-4"></i> BOOK NOW
+        </a>
+    </div>
+
+    <!-- CENTRALIZED JAVASCRIPT LOGIC -->
+    <script>
+        // Centralized Business Data
+        const BUSINESS_CONFIG = {
+            primaryPhone: "7560059661",
+            secondaryPhone: "9805434561",
+            whatsappNumber: "917560059661", // Centrally configured target WhatsApp number
+            location: "Mustang City, Nirwana Street, Kharar, Punjab",
+            serviceAreas: ["Kharar", "Landran", "Mohali", "Chandigarh"]
+        };
+
+        // Centralized Fleet Data (Exact 12 Vehicles)
+        const FLEET = [
+            {
+                id: "baleno",
+                name: "SUZUKI BALENO",
+                category: "HATCHBACK",
+                image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=800&q=80",
+                transmission: "Manual",
+                fuel: "Petrol",
+                seats: 5,
+                price: "Contact us for current pricing",
+                description: "Spacious, premium hatchback perfect for city drives and short weekend trips."
+            },
+            {
+                id: "swift-2025",
+                name: "SUZUKI SWIFT 2025",
+                category: "HATCHBACK",
+                image: "https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=800&q=80",
+                transmission: "Manual",
+                fuel: "Petrol",
+                seats: 5,
+                price: "₹2,000 / day",
+                description: "The classic highly efficient 2025 Suzuki Swift. Nimble and easy to park."
+            },
+            {
+                id: "venue-white-2022",
+                name: "HYUNDAI VENUE WHITE 2022",
+                category: "SUV",
+                image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80",
+                transmission: "Manual",
+                fuel: "Petrol",
+                seats: 5,
+                price: "₹2,500 / day",
+                description: "White 2022 Hyundai Venue compact SUV offering strong highway comfort."
+            },
+            {
+                id: "venue-black-2024",
+                name: "HYUNDAI VENUE BLACK 2024",
+                category: "SUV",
+                image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
+                transmission: "Manual",
+                fuel: "Petrol",
+                seats: 5,
+                price: "₹2,500 / day",
+                description: "Sleek 2024 Black Hyundai Venue with updated styling and modern tech."
+            },
+            {
+                id: "creta-black-2026",
+                name: "HYUNDAI CRETA BLACK 2026",
+                category: "SUV",
+                image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80",
+                transmission: "Manual / Auto",
+                fuel: "Petrol / Diesel",
+                seats: 5,
+                price: "Contact us for current pricing",
+                description: "Premium full-size 2026 Black Creta SUV. Unmatched road presence and comfort."
+            },
+            {
+                id: "brezza-red-auto",
+                name: "SUZUKI BREEZA RED AUTOMATIC",
+                category: "AUTOMATIC",
+                image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80",
+                transmission: "Automatic",
+                fuel: "Petrol",
+                seats: 5,
+                price: "₹2,500 / day",
+                description: "Eye-catching Red Brezza with effortless automatic drive."
+            },
+            {
+                id: "brezza-black-2025",
+                name: "SUZUKI BREEZA BLACK 2025",
+                category: "SUV",
+                image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80",
+                transmission: "Manual",
+                fuel: "Petrol",
+                seats: 5,
+                price: "₹2,500 / day",
+                description: "2025 Black Suzuki Brezza compact SUV with high ground clearance."
+            },
+            {
+                id: "i20-white-2026",
+                name: "HYUNDAI I20 WHITE 2026",
+                category: "HATCHBACK",
+                image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
+                transmission: "Manual",
+                fuel: "Petrol",
+                seats: 5,
+                price: "Contact us for current pricing",
+                description: "Brand new 2026 White Hyundai i20 premium hatchback."
+            },
+            {
+                id: "thar-4x4",
+                name: "MAHINDRA THAR 4X4",
+                category: "SUV",
+                image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80",
+                transmission: "Manual / Auto",
+                fuel: "Diesel",
+                seats: 4,
+                price: "Contact us for current pricing",
+                description: "Ultimate off-road 4X4 Thar for adventure seekers heading to the mountains."
+            },
+            {
+                id: "thar-4x2",
+                name: "MAHINDRA THAR 4X2",
+                category: "SUV",
+                image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80",
+                transmission: "Manual / Auto",
+                fuel: "Diesel / Petrol",
+                seats: 4,
+                price: "Contact us for current pricing",
+                description: "Iconic Thar stance optimized for smooth highway cruising."
+            },
+            {
+                id: "fronx-dark-grey-auto",
+                name: "SUZUKI FRONX DARK GREY AUTOMATIC",
+                category: "AUTOMATIC",
+                image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80",
+                transmission: "Automatic",
+                fuel: "Petrol",
+                seats: 5,
+                price: "₹2,500 / day",
+                description: "Futuristic Dark Grey Fronx crossover with automatic transmission."
+            },
+            {
+                id: "scorpio-classic-s11-black",
+                name: "MAHINDRA SCORPIO CLASSIC S11 BLACK",
+                category: "SUV",
+                image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80",
+                transmission: "Manual",
+                fuel: "Diesel",
+                seats: 7,
+                price: "Contact us for current pricing",
+                description: "The flagship Mahindra Scorpio Classic S11 in menacing Black. High power 7-seater SUV."
+            }
+        ];
+
+        // Initialize Lucide Icons & Fleet Render on Load
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            populateVehicleDropdown();
+            renderFleet(FLEET);
+            setupDateInputs();
+        });
+
+        // Populate Booking Form Dropdown
+        function populateVehicleDropdown() {
+            const select = document.getElementById('form-vehicle');
+            select.innerHTML = FLEET.map(car => 
+                `<option value="${car.name}">${car.name} (${car.price})</option>`
+            ).join('');
+        }
+
+        // Setup Date Defaults
+        function setupDateInputs() {
+            const today = new Date().toISOString().split('T')[0];
+            const pickupDateInput = document.getElementById('form-pickup-date');
+            const returnDateInput = document.getElementById('form-return-date');
+            
+            pickupDateInput.min = today;
+            pickupDateInput.value = today;
+
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const tomorrowStr = tomorrow.toISOString().split('T')[0];
+            
+            returnDateInput.min = today;
+            returnDateInput.value = tomorrowStr;
+        }
+
+        // Render Fleet Cards
+        function renderFleet(cars) {
+            const grid = document.getElementById('fleet-grid');
+            grid.innerHTML = cars.map(car => `
+                <div class="glass-card rounded-2xl overflow-hidden border border-brand-border/80 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="${car.image}" alt="${car.name}" class="w-full h-full object-cover">
+                            <span class="absolute top-3 right-3 bg-black/70 backdrop-blur-md text-[10px] font-bold text-brand-orange px-2.5 py-1 rounded-md uppercase border border-brand-orange/30">
+                                ${car.category}
+                            </span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-extrabold text-lg text-white">${car.name}</h3>
+                            <div class="flex items-center gap-3 text-xs text-gray-400 mt-2">
+                                <span><i data-lucide="settings" class="w-3.5 h-3.5 inline text-brand-orange"></i> ${car.transmission}</span>
+                                <span>•</span>
+                                <span><i data-lucide="fuel" class="w-3.5 h-3.5 inline text-brand-orange"></i> ${car.fuel}</span>
+                                <span>•</span>
+                                <span><i data-lucide="users" class="w-3.5 h-3.5 inline text-brand-orange"></i> ${car.seats} Seats</span>
+                            </div>
+                            <p class="text-xs text-gray-300 mt-3 line-clamp-2">${car.description}</p>
+                            <div class="mt-4 pt-3 border-t border-brand-border/50 flex items-center justify-between">
+                                <span class="text-xs text-gray-400">Reference Price:</span>
+                                <span class="text-sm font-black text-white">${car.price}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 grid grid-cols-2 gap-2">
+                        <button onclick="openModal('${car.id}')" class="w-full glass-card hover:bg-brand-border/40 text-gray-200 text-xs font-bold py-2.5 rounded-xl transition-colors border border-brand-border">
+                            VIEW DETAILS
+                        </button>
+                        <button onclick="selectAndScrollBooking('${car.name}')" class="w-full bg-gradient-to-r from-brand-orange to-brand-accent text-white text-xs font-bold py-2.5 rounded-xl transition-opacity">
+                            BOOK NOW
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        // Fleet Filtering Logic
+        function filterFleet(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active', 'bg-brand-orange', 'text-white'));
+            event.target.classList.add('active', 'bg-brand-orange', 'text-white');
+
+            if (category === 'ALL') {
+                renderFleet(FLEET);
+            } else if (category === 'AUTOMATIC') {
+                renderFleet(FLEET.filter(c => c.transmission.includes('Automatic') || c.category === 'AUTOMATIC'));
+            } else {
+                renderFleet(FLEET.filter(c => c.category === category));
+            }
+        }
+
+        // Open Modal
+        function openModal(id) {
+            const car = FLEET.find(c => c.id === id);
+            if (!car) return;
+            document.getElementById('modal-img').src = car.image;
+            document.getElementById('modal-title').innerText = car.name;
+            document.getElementById('modal-specs').innerText = `${car.category} • ${car.transmission} • ${car.fuel}`;
+            document.getElementById('modal-price').innerText = car.price;
+            document.getElementById('modal-desc').innerText = car.description;
+            document.getElementById('modal-book-btn').onclick = () => {
+                closeModal();
+                selectAndScrollBooking(car.name);
+            };
+            document.getElementById('vehicle-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('vehicle-modal').classList.add('hidden');
+        }
+
+        // Auto Select Vehicle and Scroll to Booking Form
+        function selectAndScrollBooking(vehicleName, offerNote = '') {
+            const select = document.getElementById('form-vehicle');
+            if (vehicleName) {
+                select.value = vehicleName;
+            }
+            document.getElementById('quick-booking').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // FAQ Toggle
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+        });
+
+        // Direct General WhatsApp Contact
+        function directWhatsAppGeneral(customText = '') {
+            const msg = customText || "Hi Selfdrive Wheels! I have an enquiry regarding self-drive car rental in Kharar/Mohali/Chandigarh.";
+            const url = `https://wa.me/${BUSINESS_CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`;
+            window.open(url, "_blank");
+        }
+
+        // CRITICAL: WHATSAPP UTF-8 / EMOJI ENCODING IMPLEMENTATION
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const vehicle = document.getElementById('form-vehicle').value;
+            const pickupDate = document.getElementById('form-pickup-date').value;
+            const pickupTime = document.getElementById('form-pickup-time').value;
+            const returnDate = document.getElementById('form-return-date').value;
+            const returnTime = document.getElementById('form-return-time').value;
+            const name = document.getElementById('form-name').value;
+            const phone = document.getElementById('form-phone').value;
+
+            // Form Validations
+            if (new Date(returnDate) < new Date(pickupDate)) {
+                alert("Return date cannot be before pickup date.");
+                return;
+            }
+
+            // Raw message with native Unicode emojis & line breaks
+            const rawMessage = `🚗 Car Booking Request
+
+🚘 Vehicle: ${vehicle}
+
+📅 Pickup: ${pickupDate}
+⏰ Pickup Time: ${pickupTime}
+
+📅 Return: ${returnDate}
+⏰ Return Time: ${returnTime}
+
+👤 Name: ${name}
+📞 Phone: ${phone}
+
+Please confirm availability and booking details.`;
+
+            // Applied encodeURIComponent EXACTLY ONCE
+            const whatsappURL = `https://wa.me/${BUSINESS_CONFIG.whatsappNumber}?text=${encodeURIComponent(rawMessage)}`;
+
+            // Direct handoff to WhatsApp
+            window.open(whatsappURL, "_blank");
+        });
+    </script>
+</body>
 </html>
