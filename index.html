@@ -38,6 +38,8 @@
             }
         }
     </script>
+
+    
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,6 +105,12 @@
 
                 <!-- Desktop CTA -->
                 <div class="hidden lg:flex items-center gap-4">
+                    <!-- Theme Toggle Button -->
+                    <button id="theme-toggle-btn" onclick="toggleTheme()" class="glass-card p-2.5 rounded-xl text-gray-300 hover:text-white transition-colors border border-brand-border" aria-label="Toggle Theme">
+                        <i data-lucide="sun" id="theme-icon-sun" class="w-5 h-5 hidden"></i>
+                        <i data-lucide="moon" id="theme-icon-moon" class="w-5 h-5"></i>
+                    </button>
+
                     <a href="#quick-booking" class="bg-gradient-to-r from-brand-orange to-brand-accent hover:opacity-90 text-white font-bold px-6 py-2.5 rounded-xl text-sm transition-all shadow-lg shadow-brand-orange/25">
                         BOOK NOW
                     </a>
@@ -1160,6 +1168,37 @@ Please confirm availability and booking details.`;
             // Direct handoff to WhatsApp
             window.open(whatsappURL, "_blank");
         });
+
+        // Dark / Light Theme Toggle Logic
+        function toggleTheme() {
+            const html = document.documentElement;
+            const sunIcon = document.getElementById('theme-icon-sun');
+            const moonIcon = document.getElementById('theme-icon-moon');
+
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                document.body.style.backgroundColor = '#F8FAFC';
+                document.body.style.color = '#0F172A';
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                document.body.style.backgroundColor = '#0B0F17';
+                document.body.style.color = '#F3F4F6';
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Restore saved theme on page load
+        (function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                toggleTheme();
+            }
+        })();
     </script>
 </body>
 </html>
